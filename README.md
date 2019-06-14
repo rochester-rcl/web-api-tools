@@ -7,7 +7,8 @@
 
 #### Python (3.7) Modules
 * beautifulsoup4
-* internetarchive 
+* internetarchive
+* pytube 
 * scipy
 * twitch-python
 * twitter-scraper
@@ -100,6 +101,28 @@ where `/path/to/new/dir` is the absolute path to the folder you want to mount on
 	for x in *.avi; do
 		ffmpeg -i $x -c:v libx264 -strict -2 ${x%.avi}.mp4;
 	done
+
+#### 7. Audio and Video Analysis
+
+```
+# Spectrogram
+
+ffmpeg -i my_audio.mp3 -filter_complex [0:a]showspectrum=s=1280x720=color -map 0:a -pix_fmt yuv420p -strict -2 spectrogram.mp4
+
+
+# Waveform
+
+ffmpeg -i my_audio.mp3 -filter_complex [0:a]showwaves=s=1280x720:mode=line:split_channels=1 -map 0:a -pix_fmt yuv420p -strict -2 waveform.mp4
+
+# Audio Vectorscope
+
+ffmpeg -i my_audio.mp3 -filter_complex [0:a]avectorscope=s=1280x720:zoom=2.5 -map 0:a -pix_fmt yuv420p -strict -2 vectorscope.mp4
+
+# Image Vectorscope
+
+ffmpeg -i my_video.mp4 -filter_complex [0:v]vectorscope=mode=color4,scale=1280x720 -map 0:v -pix_fmt yuv420p -strict -2
+color_vectorscope.mp4 
+```
 
 ## ImageMagick Examples
 

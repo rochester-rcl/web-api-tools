@@ -18,7 +18,7 @@ RUN apt-get -qq update && apt-get -qq -y --no-install-recommends install \
 
 RUN curl https://bootstrap.pypa.io/get-pip.py | python3.7 \
   && pip3 install --upgrade pip \
-  && pip3 install twitch-python scrapy beautifulsoup4 twitter-scraper shub internetarchive scipy \
+  && pip3 install twitch-python scrapy beautifulsoup4 twitter-scraper pytumblr shub internetarchive scipy \
   && git clone https://github.com/rochester-rcl/dhsi-multimedia-examples.git web_api_tools\
   && cd /home/web_api_tools/dhsi_multimedia \
   && python3 setup.py sdist && pip3 install -e . \

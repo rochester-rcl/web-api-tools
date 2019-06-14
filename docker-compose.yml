@@ -4,4 +4,6 @@ services:
   web_api_tools:
     build: ./
     image: jromphf/web_api_tools
+    volumes:
+      - ./:/working
     restart: always

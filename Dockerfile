@@ -12,6 +12,7 @@ RUN apt-get -qq update && apt-get -qq -y --no-install-recommends install \
   python3-setuptools \
   ffmpeg \
   sox \
+  libsox-fmt-mp3 \
   git \
   imagemagick
 
